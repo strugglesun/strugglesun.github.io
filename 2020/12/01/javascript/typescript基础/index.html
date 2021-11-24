@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>javascript/typescript基础 | strugglesun的博客</title><meta name="generator" content="Hexo 4.2.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">javascript/typescript基础</h1><a id="logo" href="/.">strugglesun的博客</a><p class="description">不努力,你连试试的机会都没有</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">javascript/typescript基础</h1><div class="post-meta"><a href="/2020/12/01/javascript/typescript%E5%9F%BA%E7%A1%80/#comments" class="comment-count"></a><p><span class="date">Dec 01, 2020</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h3 id="1-三步设置VScode自动将ts文件编译为js文件"><a href="#1-三步设置VScode自动将ts文件编译为js文件" class="headerlink" title="1.三步设置VScode自动将ts文件编译为js文件"></a>1.三步设置VScode自动将ts文件编译为js文件</h3><ul>
+<li>运行tsc –init,创建tsconfig.json文件</li>
+<li>修改tsconfig.json文件，设置js文件夹:”ourDir”:”/js/“</li>
+<li>设置vscode监视任务，之后修改项目中的ts,自动生成js</li>
+</ul>
+<h3 id="2-typescript数据类型-数组"><a href="#2-typescript数据类型-数组" class="headerlink" title="2.typescript数据类型|数组"></a>2.typescript数据类型|数组</h3><ul>
+<li><strong><em>语法</em></strong></li>
+</ul>
+<p>​         方式一 : let  数组名 ：类型[] = [值1，值2] </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Movies:string[] = [<span class="string">'急先锋'</span>,<span class="string">'叶问'</span>,<span class="string">'水浒'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>​         方式一二: let  数组名 ：Array&lt;类型&gt; = [值1，值2] ,也叫泛型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> yAge:<span class="built_in">Array</span>&lt;number&gt; = [<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Typescript-数据类型-元组"><a href="#3-Typescript-数据类型-元组" class="headerlink" title="3.Typescript 数据类型|元组"></a>3.Typescript 数据类型|元组</h3><ul>
+<li><p>概念： 就是一个规定了元素数量和每个元素类型的数组，而每个元素的类型，可以不相同。</p>
+</li>
+<li><p>语法：</p>
+<p>​         let 元组名：[类型1，类型2，类型3] = [值1，值2，值3]</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tup:[string,number,boolean] = [<span class="string">'急先锋'</span>,<span class="number">23</span>,<span class="literal">true</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>为什么要有元组？</p>
+<p>TS数组中元素类型必须一致，如需要不同元素，可以用元组了！</p>
+</li>
+<li><p>特点：</p>
+<p>​        声明时，要指定元素个数 </p>
+<p>​        声明时，要为每个元素规定类型</p>
+</li>
+</ul>
+<h3 id="4-Typrscript数据类型-枚举"><a href="#4-Typrscript数据类型-枚举" class="headerlink" title="4.Typrscript数据类型|枚举"></a>4.Typrscript数据类型|枚举</h3><ul>
+<li><p>声明语法：</p>
+<p>​    enum GunType{</p>
+<p>​       M416 = 1,</p>
+<p>​       AK47 = 2,</p>
+<p>​       Goza = 3</p>
+<p>​    }</p>
+</li>
+<li><p>使用默认枚举值：</p>
+</li>
+<li><p>enum GunType{</p>
+<p>​     M416,  //0</p>
+<p>​     Ak47,//1</p>
+<p>​     Goza//2</p>
+<p>}</p>
+</li>
+</ul>
+<h3 id="5-Typescript数据类型-any"><a href="#5-Typescript数据类型-any" class="headerlink" title="5.Typescript数据类型|any"></a>5.Typescript数据类型|any</h3><ul>
+<li><p>概念： any代表任意类型，一般在获取dom是使用 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们在接收用户输入 或 第三方代码库时，还不确定会返回什么类型的值，此时也可以使用any类型</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let txtName :any &#x3D; document.getElementById(&#39;txtN&#39;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="6-Typescript数据类型-void"><a href="#6-Typescript数据类型-void" class="headerlink" title="6.Typescript数据类型|void"></a>6.Typescript数据类型|void</h3><ul>
+<li><p>概念：void代表没有类型，一般用在无返回值的函数</p>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStr</span>(<span class="params"></span>):<span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'你符合'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> str = getStr()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gets</span>(<span class="params"></span>):<span class="title">void</span></span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hfiuegu'</span>)</span><br><span class="line">&#125;</span><br><span class="line">gets()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="7-typescript数据类型-never"><a href="#7-typescript数据类型-never" class="headerlink" title="7.typescript数据类型 |never"></a>7.typescript数据类型 |never</h3><ul>
+<li><p>概念：never代表不存在的值的类型，常用做抛出异常或无限循环的函数返回类型</p>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>):<span class="title">never</span></span>&#123;</span><br><span class="line">   <span class="keyword">while</span>(<span class="literal">true</span>)&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>):<span class="title">never</span></span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'雇一个地'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>补充：never类型是ts中的底部类型，所有类型都是never类型的父类</p>
+<p>​            所以never类型值可以赋给任意类型的变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x:never= test()</span><br><span class="line"><span class="keyword">let</span> y:string = test()</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="8-Typescript数据类型-类型推断"><a href="#8-Typescript数据类型-类型推断" class="headerlink" title="8.Typescript数据类型|类型推断"></a>8.Typescript数据类型|类型推断</h3><ul>
+<li><p>概念：如果变量的声明和初始化是在同一行，可以省略掉变量类型的声明</p>
+</li>
+<li><p>验证：</p>
+<p> let age = 18 ;  此时变量age的类型被推断为 number</p>
+<p>age = ‘jack’ ; 报错 ，应为变量age的类型是number</p>
+</li>
+</ul>
+<h3 id="9-Typescript数据类型-联合类型"><a href="#9-Typescript数据类型-联合类型" class="headerlink" title="9.Typescript数据类型|联合类型"></a>9.Typescript数据类型|联合类型</h3><ul>
+<li><p>概念：表示取值可以是多种类型中的一种</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> 变量名 ：变量类型<span class="number">1</span> | 变量类型<span class="number">2</span> = 值；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>例子： </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> dName:string|<span class="literal">null</span> = prompt(<span class="string">'请输入小狗名字'</span>)；</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'holle'</span>+dName)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="10-Typescript-函数-返回值和参数"><a href="#10-Typescript-函数-返回值和参数" class="headerlink" title="10.Typescript 函数|返回值和参数"></a>10.Typescript 函数|返回值和参数</h3><ul>
+<li><p>函数    返回值类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params"></span>):返回值类型</span>&#123;</span><br><span class="line">    <span class="comment">//如果函数没有返回值,则定义为void</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> 变量名：变量类型 =  函数名();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数    形参类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">形参<span class="number">1</span>:类型,形参<span class="number">2</span>:类型</span>):返回值类型</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> 变量名:变量类型=函数名(实参<span class="number">1</span>,实参<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>特点：</p>
+<p>实参和形参 的类型要一致</p>
+<p>实参和形参 的数量要一致</p>
+</li>
+</ul>
+<h3 id="11-Typescript函数-可选参数"><a href="#11-Typescript函数-可选参数" class="headerlink" title="11.Typescript函数|可选参数"></a>11.Typescript函数|可选参数</h3><ul>
+<li><p>函数   可选参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">形参? : 类型</span>):返回值类型</span>&#123;</span><br><span class="line"><span class="comment">//可选参数的实参可传,也可不传</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用</p>
+<p>可以不传实参   函数名();</p>
+<p>可以传递实参   函数名(实参值)；</p>
+</li>
+</ul>
+<h3 id="12-Typescript函数-默认值"><a href="#12-Typescript函数-默认值" class="headerlink" title="12.Typescript函数|默认值"></a>12.Typescript函数|默认值</h3><ul>
+<li>函数   默认值(带默认值的参数，本身也是可选参数)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">形参<span class="number">1</span>：类型 =默认值<span class="number">1</span>，形参<span class="number">2</span>：类型=默认值<span class="number">2</span></span>):返回值类型</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>调用</p>
+<p> 不传递实参    函数名();   编译后    函数名(默认值1，默认值2)；</p>
+<p> 传1个实参      函数名(实参1)；    函数名(实参1，默认值2)；</p>
+<p> 传2个实参      函数名(实参1，实参2)；  函数名(实参1，实参2)；</p>
+<p> 只传递2个实参   函数名(undefined,实参2)；  函数名(默认值1，实参2)；</p>
+</li>
+</ul>
+<h3 id="13-Typescript函数-剩余参数"><a href="#13-Typescript函数-剩余参数" class="headerlink" title="13.Typescript函数|剩余参数"></a>13.Typescript函数|剩余参数</h3><ul>
+<li><p>函数  剩余参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function add(形参1:类型,形参2:类型,...形参3:类型[]):void&#123;</span><br><span class="line">console.log(a+b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>特点   </p>
+<p> 剩余参数  只能定义一个</p>
+<p> 剩余参数   只能定义为数组</p>
+<p> 剩余参数   只能定义在形参列表最后</p>
+</li>
+<li><p>调用</p>
+<p> 实参最后的参数都是剩余参数</p>
+</li>
+</ul>
+<h3 id="14-Typescript-类"><a href="#14-Typescript-类" class="headerlink" title="14.Typescript|类"></a>14.Typescript|类</h3><ul>
+<li><p>创建对象  (类class - TS)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">City</span></span>&#123;</span><br><span class="line">  <span class="comment">//成员变量</span></span><br><span class="line">  cname :string;</span><br><span class="line">  clevel :number;</span><br><span class="line">  <span class="comment">//构造函数</span></span><br><span class="line">  <span class="keyword">constructor</span>(name:string,level:number)&#123;</span><br><span class="line">   <span class="keyword">this</span>.cname=name;</span><br><span class="line">   <span class="keyword">this</span>.clevel=level</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//成员方法</span></span><br><span class="line">  about()&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.cname<span class="string">`)</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">  &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">&#125;</span></span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let c1 &#x3D; new City(&#39;p城&#39;,1)</span><br><span class="line">console.log(c1.cname)&#x2F;&#x2F;访问变量</span><br><span class="line">c1.about();&#x2F;&#x2F;调用方法</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</div><div class="post-copyright"><blockquote><p>原文作者: strugglesun</p><p>原文链接: <a href="http://yoursite.com/2020/12/01/javascript/typescript基础/">http://yoursite.com/2020/12/01/javascript/typescript基础/</a></p><p>版权声明: 转载请注明出处(必须保留作者署名及链接)</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/12/08/vue/VUE%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B/" class="pre">vue/VUE项目流程</a><a href="/2020/11/12/uniapp/uniapp%E4%BB%8B%E7%BB%8D/" class="next">uniapp/uniapp介绍</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-三步设置VScode自动将ts文件编译为js文件"><span class="toc-text">1.三步设置VScode自动将ts文件编译为js文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-typescript数据类型-数组"><span class="toc-text">2.typescript数据类型|数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Typescript-数据类型-元组"><span class="toc-text">3.Typescript 数据类型|元组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Typrscript数据类型-枚举"><span class="toc-text">4.Typrscript数据类型|枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Typescript数据类型-any"><span class="toc-text">5.Typescript数据类型|any</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Typescript数据类型-void"><span class="toc-text">6.Typescript数据类型|void</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-typescript数据类型-never"><span class="toc-text">7.typescript数据类型 |never</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Typescript数据类型-类型推断"><span class="toc-text">8.Typescript数据类型|类型推断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-Typescript数据类型-联合类型"><span class="toc-text">9.Typescript数据类型|联合类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-Typescript-函数-返回值和参数"><span class="toc-text">10.Typescript 函数|返回值和参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-Typescript函数-可选参数"><span class="toc-text">11.Typescript函数|可选参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-Typescript函数-默认值"><span class="toc-text">12.Typescript函数|默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-Typescript函数-剩余参数"><span class="toc-text">13.Typescript函数|剩余参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-Typescript-类"><span class="toc-text">14.Typescript|类</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/11/09/react/react/">react/react</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/16/react/react1/">react/react1</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/14/%E9%9D%A2%E8%AF%95%E9%A2%98/1.%E4%BB%8E%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AAURL%E5%9C%B0%E5%9D%80%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%8C%E6%88%90%E6%B8%B2%E6%9F%93%E7%9A%84%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B/">面试题/1.从输入一个URL地址到浏览器完成渲染的整个过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/31/node/%E4%BF%AE%E6%94%B9%E5%AE%8C%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF/">node/修改完代码自动重启</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/19/node/node%E6%98%AF%E4%BB%80%E4%B9%88/">node/node是什么</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/18/vue/%E8%B7%AF%E7%94%B1%E7%9A%84Query%E5%8F%82%E6%95%B0%E5%92%8CParams%E5%8F%82%E6%95%B0%E5%8C%BA%E5%88%AB/">vue/路由的Query参数和Params参数区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/09/vue/vuex%E6%A8%A1%E5%9D%97%E5%8C%96+%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">vue/vuex模块化+命名空间</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/26/vue/Object.defineProperty/">vue/Object.defineProperty</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/02/%E5%85%B6%E4%BB%96/%E4%BD%A0%E7%9F%A5%E9%81%93WebSocket%E5%90%97/">其他/你知道WebSocket吗</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/02/vue/%E4%BD%A0%E9%83%BD%E5%81%9A%E8%BF%87%E5%93%AA%E4%BA%9BVUE%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">vue/你都做过哪些VUE性能优化</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">15</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">strugglesun.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
